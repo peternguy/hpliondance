@@ -1,0 +1,60 @@
+.main {
+    position: relative;
+    display: flex;
+    height: 100vh;
+    width: 100vw; // Ensure full screen width
+    margin: 0; // Avoid unwanted margins
+    overflow: hidden;
+    margin-bottom: 100vh;
+
+
+  }
+  
+  .main video,
+  .main img {
+    position: absolute; // Make it occupy the full viewport
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // Ensures it covers the viewport without distortion
+    z-index: -1; // Keeps it behind other content
+  }
+  
+  .sliderContainer {
+    position: absolute;
+    top: calc(100vh - 350px);
+    z-index: 1; // Ensure it is above the video/image
+  }
+  
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    text-transform: uppercase; 
+  }
+  
+//   .textContainer p {
+//     margin: 0;
+//     color: white;
+//     font-size: 110px;
+//     font-weight: 500;
+//     letter-spacing: 2px;
+//   }
+
+.firstText {
+    margin: 0;
+    color: white;
+    font-size: 100px; 
+    font-weight: 700; 
+    font-family: 'zentry', sans-serif; 
+  }
+  
+  .secondText {
+    margin: 0;
+    color: white;
+    font-size: 120px; 
+    font-weight: 700; 
+    font-family: 'zentry', sans-serif; 
+  }
+  
