@@ -1,6 +1,12 @@
 'use client';
 import { useEffect } from 'react'
 import Landing from './pages/landing'
+import { Playfair_Display } from 'next/font/google'
+
+const playfair_display = Playfair_Display ({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+})
 
 export default function Home() {
 
@@ -14,7 +20,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main>
+    <main className={playfair_display.className}>
       {/* <AnimatePresence mode='wait'>
         {isLoading && <Preloader />}
       </AnimatePresence> */}

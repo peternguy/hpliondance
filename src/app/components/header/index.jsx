@@ -1,19 +1,21 @@
-'use client'
-import styles from './style.module.scss'
-import { useEffect, useState } from 'react';
-import Nav from './nav';
-import { AnimatePresence } from 'framer-motion';
+'use client';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import styles from './style.module.scss';
 import { usePathname } from 'next/navigation';
+import { AnimatePresence } from 'framer-motion';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Nav from './nav';
+import gsap from 'gsap';
 
-export default function Home() {
-
+export default function index() {
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
+  const button = useRef(null);
+  const header = useRef(null);
 
   useEffect( () => {
     if(isActive) setIsActive(false)
   }, [pathname])
-
 
   return (
     <>

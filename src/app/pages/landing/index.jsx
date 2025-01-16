@@ -21,8 +21,8 @@ export default function Landing() {
       />
         <div className={styles.sliderContainer}>
             <div className={styles.textContainer}>
-                <p className={styles.firstText}>Hoang Phuc</p>
-                <p className={styles.secondText}>Lion Dance</p>
+              <p className={`${styles.firstText} playfair_display`}>Hoang Phuc</p>
+              <p className={`${styles.secondText} playfair_display`}>Lion Dance</p>
             </div>
         </div>
     </main>
