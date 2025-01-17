@@ -31,13 +31,12 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
 }
 
 .textContainer {
   display: flex;
   flex-direction: column; 
-  gap: 5px; 
+  gap: 20px; 
   align-items: center;
   text-transform: uppercase;
 }
@@ -50,20 +49,34 @@
 }
 
 
-/* Adjustments for Absolute Positioning */
 .firstText {
   position: relative;
   margin-top: -844px; 
+  margin-left: -800px;
+  font-size: 6vw;
+
 }
 
 .secondText {
   position: relative;
+  margin-left: 800px;
+  font-size: 6vw;
+
+
 }
 
 .descriptionSection {
   width: 100%;
   padding: 2rem;
   background-color: #f9f9f9; 
-  height: 550px; 
+  height: 70vh; 
+
+}
+
+.servicesSection {
+  width: 100%;
+  padding: 2rem;
+  background-color: #f9f9f9; 
+  height: 300vh; 
   margin-bottom: 100vh;
 }

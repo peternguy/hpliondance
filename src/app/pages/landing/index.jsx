@@ -2,6 +2,7 @@
 import styles from './style.module.scss'
 import { useRef } from 'react';
 import Description from './description'
+import Services from './services'
 export default function Landing() {
 
   const firstText = useRef(null);
@@ -27,9 +28,14 @@ export default function Landing() {
         </div>
       </div>
 
-        <div className={styles.descriptionSection}>
-          <Description />
-        </div> 
+      <div className={styles.descriptionSection}>
+        <Description />
+      </div> 
+
+      <div className={styles.servicesSection}>
+          <Services />
+      </div> 
+
     </main>
   )
 }

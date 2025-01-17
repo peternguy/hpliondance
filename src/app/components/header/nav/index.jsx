@@ -6,6 +6,13 @@ import { menuSlide } from '../anim';
 import Link from './Link';
 import Curve from './Curve';
 
+import { Playfair_Display } from 'next/font/google'
+
+const playfair_display = Playfair_Display ({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+})
+
 const navItems = [
   {
     title: "Home",
@@ -45,7 +52,7 @@ export default function index() {
   return (
     <motion.div variants={menuSlide} initial="initial" animate="enter" exit="exit" className={styles.menu}>
        <div className={styles.body}>
-            <div onMouseLeave={() => {setSelectedIndicator(pathname)}} className={styles.nav}>
+            <div onMouseLeave={() => {setSelectedIndicator(pathname)}} className={`${styles.nav} ${playfair_display.className}`}>
                     <div className={styles.header}>
                         <p>Navigation</p>
                     </div>

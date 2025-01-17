@@ -2,6 +2,8 @@ import styles from './description.module.scss';
 import { useInView, motion } from 'framer-motion';
 import { useRef } from 'react';
 import { slideUp, opacity } from './descriptionAnim';
+import Link from 'next/link';
+
 export default function index() {
 
     const phrase = "Bridge between the past and present all across Chicago. Dedicated to preserving and celebrating the heritage of lion dance.";
@@ -30,9 +32,11 @@ export default function index() {
             </p>
                 <motion.p variants={opacity} animate={isInView ? "open" : "closed"}>A cherished tradition symbolizing strength, courage, and good fortune. Get ready for a mesmerizing experience. </motion.p>
                 <div data-scroll data-scroll-speed={0.1}>
-                    <div className={styles.button}>
-                        <p>About me</p>
-                    </div>
+                    <Link href="/pages/about">
+                        <div className={styles.button}>
+                            <p>About Us</p>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>
