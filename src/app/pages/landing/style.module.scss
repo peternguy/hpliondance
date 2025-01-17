@@ -1,72 +1,69 @@
 .main {
-    position: relative;
-    display: flex;
-    height: 100vh;
-    width: 100vw; 
-    margin: 0; 
-    overflow: hidden;
-    margin-bottom: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: auto; 
+  margin: 0;
+  overflow: visible;
+  overflow-x: hidden;
+}
+
+.videoContainer {
+  position: relative; 
+  width: 100%;
+  height: 100vh; 
+  // overflow: hidden;
+}
+
+.videoContainer video {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
+
+.sliderContainer {
+  // position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column; 
+  gap: 5px; 
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.firstText,
+.secondText {
+  color: rgb(255, 255, 255);
+  font-size: 6vw;
+  font-weight: 700;
+}
 
 
-  }
-  
-  .main video,
-  .main img {
-    position: absolute; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    z-index: -1; 
-  }
-  
-  .sliderContainer {
-    z-index: 1; 
-  }
-  
-  .textContainer {
-    display: flex; 
-    gap: 20px; 
-    align-items: flex-start; 
-    justify-content: center; 
-    text-transform: uppercase; 
-  }
-  .firstText {
-    position: absolute;
-    top: 144px; 
-    left: 24px; 
-    margin: 0;
-    color: white;
-    font-size: 6vw; 
-    font-weight: 700;
-    font-family: 'zentry', sans-serif;
-  }
-  
-  .secondText {
-    position: absolute;
-    bottom: 80px; 
-    right: 20px;
-    margin: 0;
-    color: white;
-    font-size: 6vw; 
-    font-weight: 700;
-    font-family: 'zentry', sans-serif;
-  }
-  
-  /* Tablet Screens */
-  @media (max-width: 1024px) {
-    .firstText,
-    .secondText {
-      font-size: 6vw; /* Slightly smaller for tablets */
-    }
-  }
-  
-  /* Phones */
-  @media (max-width: 768px) {
-    .firstText,
-    .secondText {
-      font-size: 5vw; /* Smaller for phones */
-    }
-  }
-  
+/* Adjustments for Absolute Positioning */
+.firstText {
+  position: relative;
+  margin-top: -844px; 
+}
+
+.secondText {
+  position: relative;
+}
+
+.descriptionSection {
+  width: 100%;
+  padding: 2rem;
+  background-color: #f9f9f9; 
+  height: 550px; 
+  margin-bottom: 100vh;
+}

@@ -1,8 +1,7 @@
 'use client'
-import Image from 'next/image'
 import styles from './style.module.scss'
 import { useRef } from 'react';
-
+import Description from './description'
 export default function Landing() {
 
   const firstText = useRef(null);
@@ -11,20 +10,26 @@ export default function Landing() {
 
   return (
     <main className={styles.main}>
-      <video 
-        src="/videos/hero-1.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        alt="background"
-      />
+      <div className={styles.videoContainer}>
+        <video 
+          src="/videos/hero-1.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          alt="background"
+        />
         <div className={styles.sliderContainer}>
-            <div className={styles.textContainer}>
-              <p className={`${styles.firstText} playfair_display`}>Hoang Phuc</p>
-              <p className={`${styles.secondText} playfair_display`}>Lion Dance</p>
-            </div>
+          <div className={styles.textContainer}>
+            <p className={styles.firstText}>Hoang Phuc</p>
+            <p className={styles.secondText}>Lion Dance</p>
+          </div>
         </div>
+      </div>
+
+        <div className={styles.descriptionSection}>
+          <Description />
+        </div> 
     </main>
   )
 }
