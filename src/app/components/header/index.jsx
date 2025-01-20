@@ -3,9 +3,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styles from './style.module.scss';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence } from 'framer-motion';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Nav from './nav';
-import gsap from 'gsap';
 import Link from 'next/link';
 
 
