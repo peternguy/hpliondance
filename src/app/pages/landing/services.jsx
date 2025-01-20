@@ -6,19 +6,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const projects = [
     {
-        title: "Salar de Atacama",
+        title: "Weddings",
+        src: "/img/IMG_1548.jpeg"
+    },
+    {
+        title: "Lunar New Year",
         src: "/img/HD-61.jpeg"
     },
     {
-        title: "Valle de la luna",
-        src: "/img/HD-61.jpeg"
+        title: "Grand Openings",
+        src: "/img/MBA_6109_Original.JPG"
     },
     {
-        title: "Miscanti Lake",
-        src: "/img/HD-61.jpeg"
-    },
-    {
-        title: "Miniques Lagoons",
+        title: "Many More",
         src: "/img/HD-61.jpeg"
     },
 ]
@@ -28,22 +28,21 @@ export default function Index() {
     const [selectedProject, setSelectedProject] = useState(0);
     const container = useRef(null);
     const imageContainer = useRef(null);
-    const lastProjectRef = useRef(null);
 
 
-    useLayoutEffect( () => {
+    useLayoutEffect(() => {
+        const containerEl = container.current;
 
-        const endPosition = lastProjectRef.current
-        ? lastProjectRef.current.offsetTop + lastProjectRef.current.offsetHeight
-        : document.body.offsetHeight;
+        if (!containerEl) return;
 
         gsap.registerPlugin(ScrollTrigger);
+
         ScrollTrigger.create({
             trigger: imageContainer.current,
             pin: true,
             start: "top-=100px",
-            end: endPosition - window.innerHeight - 50,
-        })
+            end: () => containerEl.offsetTop + containerEl.offsetHeight - window.innerHeight - 100,
+        });
     }, [])
 
     return (
