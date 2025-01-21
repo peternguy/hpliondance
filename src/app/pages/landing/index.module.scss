@@ -79,7 +79,7 @@
 }
 
 .button{
-  top: 70%;
+  top: 71%;
   left: 440px;
   width: 140px;
   height: 50px;
@@ -159,7 +159,7 @@
   width: 100%;
   padding: 2rem;
   background-color: #f9f9f9; 
-  height: 70vh; 
+  height: 90vh; 
   margin-top: -100px;
 
 
@@ -168,7 +168,17 @@
 .servicesSection {
   width: 100%;
   padding: 2rem;
-  background-color: #f1f0f0; 
+  // background-color: #f1f0f0; 
+  background-color: black;
   height: 300vh; 
-  margin-bottom: 100vh;
 }
+
+
+.gallerySection {
+  // width: 100%;
+  background-color: #f1f0f0; 
+  // background-color: black;
+  // height: 100vh; 
+  // margin-bottom: 100vh;
+}
+

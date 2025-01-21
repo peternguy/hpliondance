@@ -15,14 +15,14 @@
 
 .imageContainer{
     position: relative;
-    height: 90%;
+    height: 100%;
     width: 40%;
-}
 
-.imageContainer img{
-    object-fit: cover;
-    border-radius: 36px;
-
+    img {
+        object-fit: cover;
+        border-radius: 36px;
+        
+    }
 }
 
 .column{
@@ -30,12 +30,14 @@
     height: 100%;
     width: 20%;
     font-size: 1.6vw;
+    color: white;
+
+    &:last-of-type {
+        align-items: flex-end;
+        font-size: 1vw;
+    }
 }
 
-.column:last-of-type{
-    align-items: flex-end;
-    font-size: 1vw;
-}
 
 .projectList{
     display: flex;
@@ -46,19 +48,21 @@
 
 .projectEl{
     width: 100%;
-    color: rgb(0, 0, 0);
+    color: rgb(244, 244, 244);
     text-transform: uppercase;
     font-size: 3vw;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(255, 255, 255);
     display: flex;
     justify-content: flex-end;
+
+    h2 {
+        margin: 0px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        cursor: default;
+    }
 }
-.projectEl h2{
-    margin: 0px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    cursor: default;
-}
+
 
 .button{
     top: 76.5%;
@@ -82,4 +86,23 @@
     }
   
   
+}
+
+/* Phone (below 868px) */
+@media (max-width: 868px) {
+    .column{
+        font-size: 2.6vw;
+    
+        &:last-of-type {
+            font-size: 2vw;
+        }
+    }
+
+    .button {
+        top: 76.5%;
+        left: 200px;
+        width: 180px;
+        height: 180px;
+    }
+
   }

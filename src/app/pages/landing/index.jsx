@@ -3,6 +3,7 @@ import styles from './index.module.scss'
 import { useRef } from 'react';
 import Description from './description'
 import Services from './services'
+import Gallery from './gallery'
 import Link from 'next/link';
 
 
@@ -49,6 +50,10 @@ export default function Landing() {
 
       <div className={styles.servicesSection}>
           <Services />
+      </div> 
+
+      <div>
+          <Gallery />
       </div> 
 
     </main>
