@@ -1,8 +1,11 @@
 'use client'
-import styles from './style.module.scss'
+import styles from './index.module.scss'
 import { useRef } from 'react';
 import Description from './description'
 import Services from './services'
+import Link from 'next/link';
+
+
 export default function Landing() {
 
   const firstText = useRef(null);
@@ -24,8 +27,20 @@ export default function Landing() {
           <div className={styles.textContainer}>
             <p className={styles.firstText}>Hoang Phuc</p>
             <p className={styles.secondText}>Lion Dance</p>
+            <div className={styles.textWithButton}>
+              <p className={styles.thirdText}>Step into the culture. Celebrate the tradition.</p>
+                <Link href="/pages/contact">
+                  <div className={styles.button}>
+                    <p>Contact Now</p>
+                  </div>
+                </Link>
+            </div>
+
           </div>
+
+
         </div>
+        
       </div>
 
       <div className={styles.descriptionSection}>

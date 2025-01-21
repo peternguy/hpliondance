@@ -1,8 +1,10 @@
 import React, { useState, useLayoutEffect, useRef } from 'react'
-import styles from './services.module.css';
+import styles from './services.module.scss';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
+
 
 const projects = [
     {
@@ -72,6 +74,14 @@ export default function Index() {
                         </div>
                     })
                 }
+            </div>
+
+            <div data-scroll data-scroll-speed={0.1}>
+                <Link href="/pages/contact">
+                    <div className={styles.button}>
+                        <p>All Services</p>
+                    </div>
+                </Link>
             </div>
         </div>
     )

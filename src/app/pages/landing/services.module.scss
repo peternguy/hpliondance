@@ -59,3 +59,27 @@
     margin-bottom: 20px;
     cursor: default;
 }
+
+.button{
+    top: 76.5%;
+    left: 500px;
+    width: 220px;
+    height: 220px;
+    background-color: #455CE9;
+    color: white;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    p{
+        margin: 0px;
+        font-size: 16px;
+        font-weight: 300;
+        position: relative;
+        z-index: 4;
+    }
+  
+  
+  }
