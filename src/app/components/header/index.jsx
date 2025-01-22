@@ -3,47 +3,65 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styles from './style.module.scss';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence } from 'framer-motion';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Nav from './nav';
-import Link from 'next/link';
-
-
-import { Playfair_Display } from 'next/font/google'
-
-const playfair_display = Playfair_Display ({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-})
+import gsap from 'gsap';
+import Link from 'next/link'
 
 export default function index() {
-  const [isActive, setIsActive] = useState(false);
-  const pathname = usePathname();
-  const button = useRef(null);
-  const header = useRef(null);
+    const header = useRef(null);
+    const [isActive, setIsActive] = useState(false);
+    const pathname = usePathname();
+    const button = useRef(null);
 
-  useEffect( () => {
-    if(isActive) setIsActive(false)
-  }, [pathname])
+    useEffect( () => {
+      if(isActive) setIsActive(false)
+    }, [pathname])
 
-  return (
-    <>
-    <div className={styles.main}>
-      <div className={styles.header}>
+    useLayoutEffect( () => {
+        gsap.registerPlugin(ScrollTrigger)
+        gsap.to(button.current, {
+            scrollTrigger: {
+                trigger: document.documentElement,
+                start: 0,
+                end: window.innerHeight,
+                onLeave: () => {gsap.to(button.current, {scale: 1, duration: 0.25, ease: "power1.out"})},
+                onEnterBack: () => {gsap.to(button.current, {scale: 0, duration: 0.25, ease: "power1.out"})}
+            }
+        })
+    }, [])
 
-        <div className={styles.logo}>
-            <Link href="/">
-                <img src="/img/hp-logo-2.png" alt="Logo" />
-            </Link>
+    return (
+        <>
+        <div ref={header} className={styles.header}>
+            <div className={styles.logo}>
+                <Link href="/">
+                    <img src="/img/hp-logo-2.png" alt="Logo" />
+                </Link>
+            </div>
+            <div className={styles.nav}>
+                <div className={styles.el}>
+                    <a>Services</a>
+                    <div className={styles.indicator}></div>
+                </div>
+                <div className={styles.el}>
+                    <a>About</a>
+                    <div className={styles.indicator}></div>
+                </div>
+                <div className={styles.el}>
+                    <a>Contact</a>
+                    <div className={styles.indicator}></div>
+                </div>
+            </div>
         </div>
-        
-        <div onClick={() => {setIsActive(!isActive)}} className={styles.button}>
-          <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
+        <div ref={button} className={styles.headerButtonContainer}>
+            <div onClick={() => {setIsActive(!isActive)}} className={`${styles.button}`}>
+                <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
+            </div>
         </div>
-      </div>
-
-    </div>
-    <AnimatePresence mode="wait">
-      {isActive && <Nav />}
-    </AnimatePresence>
-    </>
-  )
+        <AnimatePresence mode="wait">
+            {isActive && <Nav />}
+        </AnimatePresence>
+        </>
+    )
 }

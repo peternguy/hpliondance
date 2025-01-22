@@ -1,34 +1,79 @@
 .header{
-    display: flex; 
-    justify-content: space-between; /* Space between logo and toggle */
-    align-items: center; /* Align items vertically in the center */
-    padding: 30px;
-    position: fixed;
-    right: 0;
-    left: 0; 
-    z-index: 10;
-
-    .logo {
+    position: absolute;
+    display: flex;
+    z-index: 4;
+    top: 0;
+    color: white;
+    padding: 35px;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 300;
+    box-sizing: border-box;
+    align-items: center;
+    
+    .logo{
         img {
-          max-width: 100px;
-          height: auto; /* Maintain aspect ratio */
+            max-width: 100px;
+            height: auto;
         }
-      }
+      
+    }
+    .nav{
+        display: flex;
+        align-items: center;
+
+        .el{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+            padding: 15px;
+            cursor: pointer;
+            &:hover{
+                .indicator{
+                    transform: scale(1);
+                }
+            }
+            .indicator{
+                position: absolute;
+                width: 5px;
+                height: 5px;
+                top: 45px;
+                left: 50%;
+                background-color: white;
+                border-radius: 50%;
+                transform: scale(0) translateX(-50%);
+                transition: transform 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+            }
+        }
+        a{
+            cursor: pointer;
+        }
+    } 
+}
+.headerButtonContainer{
+    transform: scale(0);
+    position: fixed;
+    right: 0px;
+    z-index: 7;
 
     .button{
+        position: relative;
+        margin: 20px;
         width: 80px;
         height: 80px;
         border-radius: 50%;
-        background-color: #455CE9;
-        // background-color: #02FEFF;
+        background-color: #1C1D20;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-
+    
     .burger{
         width: 100%;
+        position: relative;
+        z-index: 1;
         &::after, &::before{
             content: "";
             display: block;
@@ -39,34 +84,27 @@
             position: relative;
             transition: transform 0.3s;
         }
-
+    
         &::after{
             top: -5px;
         }
-
+    
         &::before{
             top: 5px;
         }
     }
-
+    
     .burgerActive{
-
+    
         &::after{
             transform: rotate(45deg);
             top: -1px;
         }
-
+    
         &::before{
             transform: rotate(-45deg);
             top: 0px;
         }
         
     }
-
-
 }
-
-
-
-
-

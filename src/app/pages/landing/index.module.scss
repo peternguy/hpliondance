@@ -64,7 +64,7 @@
 .secondText {
   position: relative;
   right: 0;
-  margin-top:-172px;
+  margin-top:-64px;
   
 
 }
@@ -73,13 +73,13 @@
   color: #f9f9f9;
   font-size: 20px;
   z-index: 4;
-  margin-top: -130px;
-  padding-left: 10px;
+  margin-top: -24px;
+  padding-left: 16px;
   
 }
 
 .button{
-  top: 71%;
+  top: 69%;
   left: 440px;
   width: 140px;
   height: 50px;
@@ -165,20 +165,29 @@
 
 }
 
-.servicesSection {
+// .servicesSection {
+//   width: 100%;
+//   padding: 2rem;
+//   // background-color: #f1f0f0; 
+//   background-color: black;
+//   height: 300vh; 
+// }
+
+
+.services2Section {
   width: 100%;
-  padding: 2rem;
-  // background-color: #f1f0f0; 
-  background-color: black;
-  height: 300vh; 
-}
-
-
-.gallerySection {
-  // width: 100%;
-  background-color: #f1f0f0; 
+  background-color: #f9f9f9; 
   // background-color: black;
   // height: 100vh; 
-  // margin-bottom: 100vh;
+  margin-bottom: 50vh;
+  p {
+    font-size: 5vh;
+  }
+  
+}
+
+.gallerySection {
+    margin-bottom: 100vh;
+
 }
 

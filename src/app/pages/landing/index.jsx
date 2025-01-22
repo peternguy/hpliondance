@@ -3,11 +3,46 @@ import styles from './index.module.scss'
 import { useRef } from 'react';
 import Description from './description'
 import Services from './services'
-import Gallery from './gallery'
+import Services2 from './services2'
 import Link from 'next/link';
+import Gallery from './gallery'
 
 
 export default function Landing() {
+
+  const projects = [
+
+    {
+      id:1,
+      title1: "Wedding",
+      title2: "Celebrations",
+      src: "/img/IMG_1550.jpeg"
+    },
+    {
+      id:2,
+      title1: "Lunar",
+      title2: "New Year",
+      src: "/img/IMG_1550.jpeg"
+    },
+    {
+      id:3,
+      title1: "Grand",
+      title2: "Openings",
+      src: "/img/IMG_1550.jpeg"
+    },
+    {
+      id:4,
+      title1: "Corprate",
+      title2: "Business",
+      src: "/img/IMG_1550.jpeg"
+    },
+    {
+      id:5,
+      title1: "Many",
+      title2: "More",
+      src: "/img/IMG_1550.jpeg"
+    }
+  ]
 
   const firstText = useRef(null);
   const secondText = useRef(null);
@@ -36,25 +71,31 @@ export default function Landing() {
                   </div>
                 </Link>
             </div>
-
           </div>
-
-
         </div>
-        
       </div>
 
       <div className={styles.descriptionSection}>
         <Description />
       </div> 
 
-      <div className={styles.servicesSection}>
+      {/* <div className={styles.servicesSection}>
           <Services />
-      </div> 
+      </div>  */}
 
-      <div>
+   
+      <div className={styles.services2Section}>
+        <p>Services</p>
+        {projects.map((project) => (
+          <Services2 key={project.id} project={project} />
+        ))}
+      </div>
+
+      <div className={styles.gallerySection}>
           <Gallery />
       </div> 
+
+    
 
     </main>
   )

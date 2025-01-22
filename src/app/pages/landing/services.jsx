@@ -44,11 +44,15 @@ export default function Index() {
             pin: true,
             start: "top-=100px",
             end: () => containerEl.offsetTop + containerEl.offsetHeight - window.innerHeight - 100,
+            scrub: true, 
+
         });
     }, [])
 
     return (
         <div ref={container} className={styles.projects}>
+            <p>Services</p>
+
             <div className={styles.projectDescription}>
                 <div ref={imageContainer} className={styles.imageContainer}>
                     <Image 
