@@ -158,7 +158,8 @@
 .descriptionSection {
   width: 100%;
   padding: 2rem;
-  background-color: #f9f9f9; 
+  // background-color: #f9f9f9; 
+  background-color: black;
   height: 90vh; 
   margin-top: -100px;
 
@@ -176,10 +177,12 @@
 
 .services2Section {
   width: 100%;
-  background-color: #f9f9f9; 
-  // background-color: black;
+  // background-color: #f9f9f9; 
+  background-color: #000000;
+  color: #f9f9f9;
+
   // height: 100vh; 
-  margin-bottom: 50vh;
+  padding-bottom: 50vh;
   p {
     font-size: 5vh;
   }
@@ -188,6 +191,12 @@
 
 .gallerySection {
     margin-bottom: 100vh;
+    background-color: black;
+
+}
+
+.jospoSection {
+  background-color: black;
 
 }
 

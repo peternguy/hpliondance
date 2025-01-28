@@ -1,5 +1,5 @@
 .project{
-    border-top: 2px solid black;
+    border-top: 2px solid #f9f9f9;
     padding-top: 0.8vw;
     padding-bottom: 0.8vw;
     cursor: pointer;
@@ -7,21 +7,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 
 }
   
 .project p{
     font-size: 5vw;
     margin: 0px;
+    color: #f9f9f9;
 }
 .project p:nth-of-type(1){
     margin-right: 0.75vw;
+    color: #f9f9f9;
+
 }
 .project p:nth-of-type(2){
     margin-left: 0.75vw;
+    
 }
 .project:last-of-type{
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #f9f9f9;
 }
 .project .imgContainer{
   overflow: hidden;
@@ -30,7 +35,8 @@
   width: 0;
 }
 .project img{
-    width: 10vw;
+    width: 8vw;
+    height: 20vh;
 }
 
 .spacing {

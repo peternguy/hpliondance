@@ -6,6 +6,7 @@ import Services from './services'
 import Services2 from './services2'
 import Link from 'next/link';
 import Gallery from './gallery'
+import Jospo from './jo-spo'
 
 
 export default function Landing() {
@@ -16,31 +17,32 @@ export default function Landing() {
       id:1,
       title1: "Wedding",
       title2: "Celebrations",
-      src: "/img/IMG_1550.jpeg"
+      src: "/img/rings.png",
+
     },
     {
       id:2,
       title1: "Lunar",
       title2: "New Year",
-      src: "/img/IMG_1550.jpeg"
+      src: "/img/rings.png",
     },
     {
       id:3,
       title1: "Grand",
       title2: "Openings",
-      src: "/img/IMG_1550.jpeg"
+      src: "/img/rings.png",
     },
     {
       id:4,
       title1: "Corprate",
       title2: "Business",
-      src: "/img/IMG_1550.jpeg"
+      src: "/img/rings.png",
     },
     {
       id:5,
       title1: "Many",
       title2: "More",
-      src: "/img/IMG_1550.jpeg"
+      src: "/img/rings.png",
     }
   ]
 
@@ -94,6 +96,10 @@ export default function Landing() {
       <div className={styles.gallerySection}>
           <Gallery />
       </div> 
+
+      {/* <div className={styles.jospoSection}>
+          <Jospo />
+      </div>  */}
 
     
 
