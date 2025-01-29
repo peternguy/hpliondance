@@ -7,6 +7,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Nav from './nav';
 import gsap from 'gsap';
 import Link from 'next/link'
+import Button from '../button/button';
+import Magnetic from '../magnetic/magnetic';
+
 
 export default function index() {
     const header = useRef(null);
@@ -40,24 +43,30 @@ export default function index() {
                 </Link>
             </div>
             <div className={styles.nav}>
-                <div className={styles.el}>
-                    <a>Services</a>
-                    <div className={styles.indicator}></div>
-                </div>
-                <div className={styles.el}>
-                    <a>About</a>
-                    <div className={styles.indicator}></div>
-                </div>
-                <div className={styles.el}>
-                    <a>Contact</a>
-                    <div className={styles.indicator}></div>
-                </div>
+                <Magnetic> 
+                    <div className={styles.el}>
+                        <a>Services</a>
+                        <div className={styles.indicator}></div>
+                    </div>
+                </Magnetic>
+                <Magnetic>
+                    <div className={styles.el}>
+                        <a>About</a>
+                        <div className={styles.indicator}></div>
+                    </div>
+                </Magnetic>
+                <Magnetic>
+                    <div className={styles.el}>
+                        <a>Contact</a>
+                        <div className={styles.indicator}></div>
+                    </div>
+                </Magnetic>
             </div>
         </div>
         <div ref={button} className={styles.headerButtonContainer}>
-            <div onClick={() => {setIsActive(!isActive)}} className={`${styles.button}`}>
+            <Button onClick={() => {setIsActive(!isActive)}} className={`${styles.button}`}>
                 <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
-            </div>
+            </Button>
         </div>
         <AnimatePresence mode="wait">
             {isActive && <Nav />}

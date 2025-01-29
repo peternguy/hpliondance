@@ -3,6 +3,7 @@ import { useInView, motion } from 'framer-motion';
 import { useRef } from 'react';
 import { slideUp, opacity } from './descriptionAnim';
 import Link from 'next/link';
+import Button from '../../components/button/button';
 
 export default function index() {
 
@@ -33,9 +34,9 @@ export default function index() {
                 <motion.p variants={opacity} animate={isInView ? "open" : "closed"}>A cherished tradition symbolizing strength, courage, and good fortune. Get ready for a mesmerizing experience. </motion.p>
                 <div data-scroll data-scroll-speed={0.1}>
                     <Link href="/pages/about">
-                        <div className={styles.button}>
+                        <Button className={styles.button}>
                             <p>About Us</p>
-                        </div>
+                        </Button>
                     </Link>
                 </div>
             </div>

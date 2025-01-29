@@ -7,6 +7,7 @@ import Services2 from './services2'
 import Link from 'next/link';
 import Gallery from './gallery'
 import Jospo from './jo-spo'
+import Button from '../../components/button/button';
 
 
 export default function Landing() {
@@ -68,9 +69,9 @@ export default function Landing() {
             <div className={styles.textWithButton}>
               <p className={styles.thirdText}>Step into the culture. Celebrate the tradition.</p>
                 <Link href="/pages/contact">
-                  <div className={styles.button}>
+                  <Button className={styles.button}>
                     <p>Contact Now</p>
-                  </div>
+                  </Button>
                 </Link>
             </div>
           </div>
