@@ -2,7 +2,6 @@
 import styles from './index.module.scss'
 import { useRef } from 'react';
 import Description from './description'
-import Services from './services'
 import Services2 from './services2'
 import Link from 'next/link';
 import Gallery from './gallery'
@@ -81,11 +80,6 @@ export default function Landing() {
       <div className={styles.descriptionSection}>
         <Description />
       </div> 
-
-      {/* <div className={styles.servicesSection}>
-          <Services />
-      </div>  */}
-
    
       <div className={styles.services2Section}>
         <p>Services</p>
@@ -93,15 +87,16 @@ export default function Landing() {
           <Services2 key={project.id} project={project} />
         ))}
       </div>
-
-      <div className={styles.gallerySection}>
-          <Gallery />
+      
+      <div className={styles.jospoSection}>
+          <Jospo />
       </div> 
 
-      {/* <div className={styles.jospoSection}>
-          <Jospo />
+      {/* <div className={styles.gallerySection}>
+          <Gallery />
       </div>  */}
 
+ 
     
 
     </main>

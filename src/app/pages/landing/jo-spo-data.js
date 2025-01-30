@@ -2,29 +2,21 @@ export const projects = [
 
     {
 
-        name: "MAVEN 11",
-
-        client: "analogueagency",
-
-        description: "New web design for the blockchain investment fund Maven 11.",
-
-        src: "img/IMG_1550.jpeg",
-
-        year: 2022,
+        name: "SPONSOR",
+        client: "sponsor",
+        // description: "Elevate your brand and spread cultural awareness",
+        src: "ztz-11.jpg",
+        // year: 2022,
 
     },
 
     {
 
-        name: "Wix Playground Homepage",
-
-        client: "Wix Playground",
-
-        description: "Wix Playground is powered by the Wix.com design team.",
-
-        src: "img/ztz-22.jpg",
-
-        year: 2022,
+        name: "JOIN",
+        client: "join",
+        // description: "All ages welcome and no experience needed",
+        src: "ztz-07.jpg",
+        // year: 2022,
 
     }
 ]
