@@ -40,8 +40,8 @@ export default function Landing() {
     },
     {
       id:5,
-      title1: "Many",
-      title2: "More",
+      title1: "See",
+      title2: "All",
       src: "/img/rings.png",
     }
   ]
@@ -77,6 +77,7 @@ export default function Landing() {
         </div>
       </div>
 
+      
       <div className={styles.descriptionSection}>
         <Description />
       </div> 
@@ -87,14 +88,16 @@ export default function Landing() {
           <Services2 key={project.id} project={project} />
         ))}
       </div>
-      
+
+      <div className={styles.gallerySection}>
+          <Gallery />
+      </div>     
+
       <div className={styles.jospoSection}>
           <Jospo />
       </div> 
 
-      {/* <div className={styles.gallerySection}>
-          <Gallery />
-      </div>  */}
+
 
  
     

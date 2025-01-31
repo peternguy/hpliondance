@@ -37,11 +37,13 @@ export default function index() {
     return (
         <>
         <div ref={header} className={styles.header}>
-            <div className={styles.logo}>
-                <Link href="/">
-                    <img src="/img/hp-logo-2.png" alt="Logo" />
-                </Link>
-            </div>
+            <Magnetic>
+                <div className={styles.logo}>
+                    <Link href="/">
+                        <img src="/img/hp-logo-2.png" alt="Logo" />
+                    </Link>
+                </div>
+            </Magnetic>
             <div className={styles.nav}>
                 <Magnetic> 
                     <div className={styles.el}>

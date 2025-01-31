@@ -31,7 +31,7 @@ export default function index() {
                     })
                 }
             </p>
-                <motion.p variants={opacity} animate={isInView ? "open" : "closed"}>A cherished tradition symbolizing strength, courage, and good fortune. Get ready for a mesmerizing experience. </motion.p>
+                <motion.p variants={opacity} animate={isInView ? "open" : "closed"}>A tradition symbolizing strength, courage, and good fortune. Learn more about our story and what we stand for. </motion.p>
                 <div data-scroll data-scroll-speed={0.1}>
                     <Link href="/pages/about">
                         <Button className={styles.button}>

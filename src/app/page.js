@@ -2,6 +2,7 @@
 import { useEffect } from 'react'
 import Landing from './pages/landing'
 import { Playfair_Display } from 'next/font/google'
+import Footer from './components/footer/footer'
 
 const playfair_display = Playfair_Display ({
   subsets: ['latin'],
@@ -25,6 +26,7 @@ export default function Home() {
         {isLoading && <Preloader />}
       </AnimatePresence> */}
       <Landing />
+      <Footer />
     </main>
   )
 }

@@ -1,0 +1,100 @@
+.container{
+    margin-top: 10vh;
+    min-height: 100vh;
+
+    .body{
+        margin-left: 10vw;
+        position: relative;
+
+        h1{
+            margin: 0px;
+            margin-top: 10px;
+            font-size: 5vw;
+            line-height: 5vw;
+            text-transform: uppercase;
+            color: white;
+
+        }
+        h2{
+            margin: 0px;
+            margin-top: 4.5px;
+            font-size: 2vw;
+            line-height: 2vw;
+            // text-transform: uppercase;
+            color: white;
+            padding-top: 20%;
+            padding-left: 70%;
+            padding-right: 10%;
+
+        }
+        p{
+            color: white;
+            margin: 0px;
+            margin-top: 10px;
+            font-size: 2.5vw;
+            text-transform: uppercase;
+            span{
+                position: relative;
+            }
+        }
+        .button{
+            top: 100%;
+            right: 80%; 
+            width: 180px;
+            height: 180px;
+            background-color: #455CE9;
+            color: #f9f9f9;
+            border-radius: 50%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            p{
+                margin: 0px;
+                font-size: 16px;
+                font-weight: 300;
+                position: relative;
+                z-index: 1;
+            }
+        }
+    }
+    .images{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        position: relative;
+        margin-top: 5vh;
+
+        
+        .imageContainer{
+            position: absolute;
+            img{
+                object-fit: cover;
+                border-radius: 16px; /* Add rounded corners */
+
+
+            }
+            &:nth-of-type(1){
+                height: 60vh;
+                width: 50vh;
+                z-index: 1;
+            }
+            &:nth-of-type(2){
+                left: 55vw;
+                top: 15vh;
+                height: 40vh;
+                width: 30vh;
+                z-index: 2;
+            }
+            &:nth-of-type(3){
+                left: 28vw;
+                top: 48vh;
+                height: 35vh;
+                width: 28vh;
+                z-index: 3;
+            }
+        }
+    }
+}
