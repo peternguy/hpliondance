@@ -20,15 +20,15 @@ export default function Index() {
 
     const images = [
         {
-            src: "/img/ztz-06.jpg", 
+            src: "/img/ztz-06-min.jpg", 
             y: sm
         },
         {
-            src: "/img/ztz-27.jpg", 
+            src: "/img/ztz-27-min.jpg", 
             y: lg
         },
         {
-            src: "/img/ztz-28.jpg", 
+            src: "/img/ztz-28-min.jpg", 
             y: md
         }
     ];

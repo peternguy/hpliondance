@@ -2,6 +2,7 @@
 import styles from './services2.module.scss';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Sponsor from '../../components/sponsor/sponsor';
 
 const anim = {
     initial: {width: 0},
@@ -15,7 +16,7 @@ export default function index({project}) {
 
     const { title1, title2, src } = project;
     return (
-        <>
+        <div>
             <div onMouseEnter={() => {setIsActive(true)}} onMouseLeave={() => {setIsActive(false)}} className={styles.project}>
                 <p>{title1}</p>
                 <motion.div variants={anim} animate={isActive ? "open" : "closed"} className={styles.imgContainer}>
@@ -23,7 +24,6 @@ export default function index({project}) {
                 </motion.div>
                 <p>{title2}</p>
             </div>
-        </>
-        
+        </div>
     )
 }

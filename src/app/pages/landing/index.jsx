@@ -4,10 +4,11 @@ import { useRef } from 'react';
 import Description from './description'
 import Services2 from './services2'
 import Link from 'next/link';
-import Gallery from './gallery'
+import Gallery2 from './gallery2'
+import Gallery2_words from './gallery2-words'
 import Jospo from './jo-spo'
 import Button from '../../components/button/button';
-
+import Sponsors from './sponsors'
 
 export default function Landing() {
 
@@ -81,6 +82,10 @@ export default function Landing() {
       <div className={styles.descriptionSection}>
         <Description />
       </div> 
+
+      <div>
+        <Sponsors />
+      </div>
    
       <div className={styles.services2Section}>
         <p>Services</p>
@@ -89,13 +94,18 @@ export default function Landing() {
         ))}
       </div>
 
-      <div className={styles.gallerySection}>
-          <Gallery />
-      </div>     
+      <div>
+        <Gallery2_words />
+      </div>
 
+      <div>
+          <Gallery2 />
+      </div>
+
+    {/* 
       <div className={styles.jospoSection}>
           <Jospo />
-      </div> 
+      </div>  */}
 
 
 
