@@ -2,7 +2,7 @@
 import styles from './services2.module.scss';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import Sponsor from '../../components/sponsor/sponsor';
+
 
 const anim = {
     initial: {width: 0},

@@ -1,0 +1,21 @@
+.button{
+    top: 80%;
+    left: calc(100% - 200px); 
+    width: 180px;
+    height: 180px;
+    background-color: #455CE9;
+    color: #f9f9f9;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    p{
+        margin: 0px;
+        font-size: px;
+        font-weight: 400;
+        position: relative;
+        z-index: 1;
+    }
+}
