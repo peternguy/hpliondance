@@ -4,9 +4,16 @@ import { useRef } from "react";
 import Link from 'next/link';
 import Button from '../button/button';
 import styles from './footer.module.scss'
+import { Playfair_Display } from 'next/font/google'
+
+const playfair_display = Playfair_Display ({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+})
+
 export default function Content() {
   return (
-    <div className='bg-[#4E4E5A] py-8 px-12 h-full w-full flex flex-col justify-between'>
+    <div className={`bg-[#262626] py-8 px-12 h-full w-full flex flex-col justify-between ${playfair_display.className}`}>
         <Section1 />
         <Section3 />  
         <Section2 />

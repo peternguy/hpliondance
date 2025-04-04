@@ -10,7 +10,12 @@ import Link from 'next/link'
 import Button from '../button/button';
 import Magnetic from '../magnetic/magnetic';
 import { useTransitionRouter } from 'next-view-transitions';
+import { Playfair_Display } from 'next/font/google'
 
+const playfair_display = Playfair_Display ({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+})
 
 export default function index() {
     const header = useRef(null);
@@ -77,7 +82,7 @@ export default function index() {
 
     return (
         <>
-        <div ref={header} className={styles.header}>
+        <div ref={header} className={`${styles.header} ${playfair_display.className}`}>
             <Magnetic>
                 <div className={styles.logo}>
                     {/* <Link href="/">

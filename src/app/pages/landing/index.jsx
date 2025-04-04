@@ -9,6 +9,14 @@ import Gallery2_words from './gallery2-words'
 import Jospo from './jo-spo'
 import Button from '../../components/button/button';
 import Sponsors from './sponsors'
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+import SplitType from "split-type"
+
+
+
+
+gsap.registerPlugin(useGSAP);
 
 export default function Landing() {
 
@@ -46,13 +54,52 @@ export default function Landing() {
       src: "/img/rings.png",
     }
   ]
-
+  const container = useRef();
   const firstText = useRef(null);
   const secondText = useRef(null);
   const slider = useRef(null);
 
+
+  useGSAP(
+    () => {
+      const text = new SplitType(".info p", {
+        types: "lines",
+        tagName: "div",
+        lineClass: "line",
+      });
+
+      text.lines.forEach((line) => {
+        const content = line.innerHTML;
+        line.innerHTML = `<span>${content}</span>`;
+      });
+
+      gsap.set(".info p .line span", {
+        y: 400,
+        display: "block",
+      }),
+
+      gsap.to(".info p .line span", {
+        y: 0,
+        duration: 2,
+        stagger: 0.075,
+        ease: "power4.out",
+        delay: 0.25,
+      });
+      
+
+      return () => {
+        if (text) text.revert();
+      };
+    },
+    {scope: container}
+    
+  );
+  
+
+
+
   return (
-    <main className={styles.main}>
+    <main className={styles.main} >
       <div className={styles.videoContainer}>
         <video 
           src="/videos/hero-1.mp4"
@@ -63,9 +110,10 @@ export default function Landing() {
           alt="background"
         />
         <div className={styles.sliderContainer}>
-          <div className={styles.textContainer}>
+          <div ref={container} className={`${styles.textContainer} info`}>
             <p className={styles.firstText}>Hoang Phuc</p>
             <p className={styles.secondText}>Lion Dance</p>
+    
             <div className={styles.textWithButton}>
               <p className={styles.thirdText}>Step into the culture. Celebrate the tradition.</p>
                 <Link href="/pages/contact">

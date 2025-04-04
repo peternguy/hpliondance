@@ -6,7 +6,6 @@
   height: auto;
   overflow: visible;
   overflow-x: hidden;
-  background-color: #000000;
 }
 
 .videoContainer {
@@ -38,62 +37,60 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 0 2vw;
-}
-
-/* Headline Text */
-.firstText,
-.secondText {
   color: #f9f9f9;
   font-size: clamp(32px, 8vw, 128px); /* Responsive font size */
-  z-index: 4;
-  font-weight: 800;
-  padding-left: 0;
-  margin: 0;
-}
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 
-.firstText {
-  position: relative;
-  left: 0;
-}
 
-.secondText {
-  position: relative;
-  right: 0;
-  margin-top: -0.5em;
-}
+  .firstText {
+    position: relative;
+    left: 0;
+    font-weight: 800;
 
-.thirdText {
-  color: #f9f9f9;
-  font-size: clamp(14px, 2vw, 20px); /* Responsive font size */
-  z-index: 4;
-  margin-top: -12px;
-  padding-left: 0;
-}
+  }
 
-/* Call to Action Button */
-.button {
-  z-index: 4;
-  position: absolute;
-  top: 70%;
-  left: 40%;
-  transform: translateX(-50%);
-  width: clamp(120px, 20vw, 180px);
-  height: clamp(40px, 6vh, 60px);
-  background-color: #455CE9;
-  color: white;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
+  .secondText {
+    position: relative;
+    right: 0;
+    margin-top: -0.5em;
+    font-weight: 800;
 
-.button p {
-  margin: 0;
-  font-size: clamp(14px, 1.5vw, 16px);
-  font-weight: 300;
-  position: relative;
-  z-index: 4;
+  }
+
+  .thirdText {
+    color: #f9f9f9;
+    font-size: clamp(14px, 2vw, 20px); /* Responsive font size */
+    z-index: 4;
+    margin-top: -12px;
+    padding-left: 0;
+    font-weight: 0;
+  }
+
+  /* Call to Action Button */
+  .button {
+    z-index: 4;
+    position: absolute;
+    top: 67%;
+    left: 38%;
+    transform: translateX(-50%);
+    width: clamp(120px, 20vw, 180px);
+    height: clamp(40px, 6vh, 60px);
+    background-color: #455CE9;
+    color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .button p {
+    margin: 0;
+    font-size: clamp(14px, 1.5vw, 16px);
+    font-weight: 300;
+    position: relative;
+    z-index: 4;
+  }
 }
 
 
@@ -152,8 +149,8 @@
 .descriptionSection {
   width: 100%;
   padding: 2rem;
-  // background-color: #f9f9f9; 
-  background-color: black;
+  background-color: black; 
+  // background-color: #262626;
   height: 90vh; 
   margin-top: -100px;
 
@@ -161,8 +158,8 @@
 
 .services2Section {
   width: 90%;
-  // background-color: #f9f9f9; 
-  background-color: #000000;
+  background-color: black; 
+  // background-color: #262626;
   color: #f9f9f9;
   padding-top: 10vh;
   margin: 0 auto;
@@ -182,10 +179,8 @@
 
 
 
-.jospoSection {
-  background-color: rgb(247, 247, 247);
-  padding-top: 24vh;
-
-
-}
+// .jospoSection {
+//   background-color: rgb(247, 247, 247);
+//   padding-top: 24vh;
+// }
 
