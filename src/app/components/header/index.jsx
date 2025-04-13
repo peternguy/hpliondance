@@ -11,6 +11,8 @@ import Button from '../button/button';
 import Magnetic from '../magnetic/magnetic';
 import { useTransitionRouter } from 'next-view-transitions';
 import { Playfair_Display } from 'next/font/google'
+import useIsMobile from './useIsMobile';
+
 
 const playfair_display = Playfair_Display ({
   subsets: ['latin'],
@@ -22,23 +24,66 @@ export default function index() {
     const [isActive, setIsActive] = useState(false);
     const pathname = usePathname();
     const button = useRef(null);
+    const isMobile = useIsMobile();
 
     useEffect( () => {
       if(isActive) setIsActive(false)
     }, [pathname])
 
-    useLayoutEffect( () => {
-        gsap.registerPlugin(ScrollTrigger)
-        gsap.to(button.current, {
-            scrollTrigger: {
-                trigger: document.documentElement,
-                start: 0,
-                end: window.innerHeight,
-                onLeave: () => {gsap.to(button.current, {scale: 1, duration: 0.25, ease: "power1.out"})},
-                onEnterBack: () => {gsap.to(button.current, {scale: 0, duration: 0.25, ease: "power1.out"})}
-            }
-        })
-    }, [])
+    // useLayoutEffect( () => {
+    //     gsap.registerPlugin(ScrollTrigger)
+    //     gsap.to(button.current, {
+    //         scrollTrigger: {
+    //             trigger: document.documentElement,
+    //             start: 0,
+    //             end: window.innerHeight,
+    //             onLeave: () => {gsap.to(button.current, {scale: 1, duration: 0.25, ease: "power1.out"})},
+    //             onEnterBack: () => {gsap.to(button.current, {scale: 0, duration: 0.25, ease: "power1.out"})}
+    //         }
+    //     })
+    // }, [])
+
+    useLayoutEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+      
+        if (!button.current) return;
+      
+        // Always reset scale if mobile
+        if (isMobile) {
+          gsap.set(button.current, { scale: 1 });
+          return; // Exit early, don’t create scrollTrigger
+        }
+      
+        // For desktop only
+        const anim = gsap.to(button.current, {
+          scrollTrigger: {
+            trigger: document.documentElement,
+            start: 0,
+            end: window.innerHeight,
+            onLeave: () => {
+              gsap.to(button.current, {
+                scale: 1,
+                duration: 0.25,
+                ease: "power1.out",
+              });
+            },
+            onEnterBack: () => {
+              gsap.to(button.current, {
+                scale: 0,
+                duration: 0.25,
+                ease: "power1.out",
+              });
+            },
+          },
+        });
+      
+        // Cleanup
+        return () => {
+          if (anim.scrollTrigger) anim.scrollTrigger.kill();
+        };
+      }, [isMobile]);
+      
+      
 
     const router = useTransitionRouter();
 
@@ -82,138 +127,148 @@ export default function index() {
 
     return (
         <>
-        <div ref={header} className={`${styles.header} ${playfair_display.className}`}>
-            <Magnetic>
-                <div className={styles.logo}>
-                    {/* <Link href="/">
-                        <img src="/img/hp-logo-2.png" alt="Logo" />
-                    </Link> */}
-                        <a 
-                            onClick={(e) => {
-                                e.preventDefault();
-                                router.push("/", {
-                                    onTransitionReady: slideInOut,
-                                })
-                            }}
-                            href="/"
-                        >
-                            <img src="/img/hp-logo-2.png" alt="Logo" />    
-                        </a>
+            <div ref={header} className={`${styles.header} ${playfair_display.className}`}>
+                <Magnetic>
+                    <div className={styles.logo}>
+                        {/* <Link href="/">
+                            <img src="/img/hp-logo-2.png" alt="Logo" />
+                        </Link> */}
+                            <a 
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    router.push("/", {
+                                        onTransitionReady: slideInOut,
+                                    })
+                                }}
+                                href="/"
+                            >
+                                <img src="/img/hp-logo-2.png" alt="Logo" />    
+                            </a>
+                    </div>
+                </Magnetic>
+                <div className={styles.nav}>
+                    <Magnetic>
+                        <div className={styles.el}>
+                            {/* <Link href="/pages/services">Services</Link> */}
+                            <a 
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    router.push("/pages/services", {
+                                        onTransitionReady: slideInOut,
+                                    })
+                                }}
+                                href="/pages/services"
+                            >
+                                Services    
+                            </a>
+                            <div className={styles.indicator}></div>
+                        </div>
+                    </Magnetic>
+                    <Magnetic>
+                        <div className={styles.el}>
+                            {/* <Link href="/pages/gallery">Gallery</Link> */}
+                            <a 
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    router.push("/pages/gallery", {
+                                        onTransitionReady: slideInOut,
+                                    })
+                                }}
+                                href="/pages/gallery"
+                            >
+                                Gallery    
+                            </a>
+                            <div className={styles.indicator}></div>
+                        </div>
+                    </Magnetic>
+                    <Magnetic> 
+                        <div className={styles.el}>
+                            {/* <Link href="/pages/about">About</Link> */}
+                            <a 
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    router.push("/pages/about", {
+                                        onTransitionReady: slideInOut,
+                                    })
+                                }}
+                                href="/pages/about"
+                            >
+                                About    
+                            </a>
+                            <div className={styles.indicator}></div>
+                        </div>
+                    </Magnetic>
+                    <Magnetic>
+                        <div className={styles.el}>
+                            {/* <Link href="/pages/contact">Contact</Link> */}
+                            <a 
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    router.push("/pages/contact", {
+                                        onTransitionReady: slideInOut,
+                                    })
+                                }}
+                                href="/pages/contact"
+                            >
+                                Contact    
+                            </a>
+                            <div className={styles.indicator}></div>
+                        </div>
+                    </Magnetic>
+                    <Magnetic>
+                        <div className={styles.el}>
+                            {/* <Link href="/pages/sponsor">Sponsor</Link> */}
+                            <a 
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    router.push("/pages/sponsor", {
+                                        onTransitionReady: slideInOut,
+                                    })
+                                }}
+                                href="/pages/sponsor"
+                            >
+                                Sponsor    
+                            </a>
+                            <div className={styles.indicator}></div>
+                        </div>
+                    </Magnetic>
+                    <Magnetic>
+                        <div className={styles.el}>
+                            {/* <Link href="/pages/join">Join</Link> */}
+                            <a 
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    router.push("/pages/join", {
+                                        onTransitionReady: slideInOut,
+                                    })
+                                }}
+                                href="/pages/join"
+                            >
+                                Join    
+                            </a>
+                            <div className={styles.indicator}></div>
+                        </div>
+                    </Magnetic>
                 </div>
-            </Magnetic>
-            <div className={styles.nav}>
-                <Magnetic>
-                    <div className={styles.el}>
-                        {/* <Link href="/pages/services">Services</Link> */}
-                        <a 
-                            onClick={(e) => {
-                                e.preventDefault();
-                                router.push("/pages/services", {
-                                    onTransitionReady: slideInOut,
-                                })
-                            }}
-                            href="/pages/services"
-                        >
-                            Services    
-                        </a>
-                        <div className={styles.indicator}></div>
-                    </div>
-                </Magnetic>
-                <Magnetic>
-                    <div className={styles.el}>
-                        {/* <Link href="/pages/gallery">Gallery</Link> */}
-                        <a 
-                            onClick={(e) => {
-                                e.preventDefault();
-                                router.push("/pages/gallery", {
-                                    onTransitionReady: slideInOut,
-                                })
-                            }}
-                            href="/pages/gallery"
-                        >
-                            Gallery    
-                        </a>
-                        <div className={styles.indicator}></div>
-                    </div>
-                </Magnetic>
-                <Magnetic> 
-                    <div className={styles.el}>
-                        {/* <Link href="/pages/about">About</Link> */}
-                        <a 
-                            onClick={(e) => {
-                                e.preventDefault();
-                                router.push("/pages/about", {
-                                    onTransitionReady: slideInOut,
-                                })
-                            }}
-                            href="/pages/about"
-                        >
-                            About    
-                        </a>
-                        <div className={styles.indicator}></div>
-                    </div>
-                </Magnetic>
-                <Magnetic>
-                    <div className={styles.el}>
-                        {/* <Link href="/pages/contact">Contact</Link> */}
-                        <a 
-                            onClick={(e) => {
-                                e.preventDefault();
-                                router.push("/pages/contact", {
-                                    onTransitionReady: slideInOut,
-                                })
-                            }}
-                            href="/pages/contact"
-                        >
-                            Contact    
-                        </a>
-                        <div className={styles.indicator}></div>
-                    </div>
-                </Magnetic>
-                <Magnetic>
-                    <div className={styles.el}>
-                        {/* <Link href="/pages/sponsor">Sponsor</Link> */}
-                        <a 
-                            onClick={(e) => {
-                                e.preventDefault();
-                                router.push("/pages/sponsor", {
-                                    onTransitionReady: slideInOut,
-                                })
-                            }}
-                            href="/pages/sponsor"
-                        >
-                            Sponsor    
-                        </a>
-                        <div className={styles.indicator}></div>
-                    </div>
-                </Magnetic>
-                <Magnetic>
-                    <div className={styles.el}>
-                        {/* <Link href="/pages/join">Join</Link> */}
-                        <a 
-                            onClick={(e) => {
-                                e.preventDefault();
-                                router.push("/pages/join", {
-                                    onTransitionReady: slideInOut,
-                                })
-                            }}
-                            href="/pages/join"
-                        >
-                            Join    
-                        </a>
-                        <div className={styles.indicator}></div>
-                    </div>
-                </Magnetic>
             </div>
-        </div>
-        <div ref={button} className={styles.headerButtonContainer}>
-            <Button onClick={() => {setIsActive(!isActive)}} className={`${styles.button}`}>
-                <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
-            </Button>
-        </div>
-        <AnimatePresence mode="wait">
-            {isActive && <Nav />}
-        </AnimatePresence>
+        
+            <div ref={button} className={styles.headerButtonContainer}>
+                {/* Button that toggles the menu open/close state */}
+                <Button onClick={() => { setIsActive(!isActive) }} className={`${styles.button}`}>
+                    {/* Hamburger icon (changes style when active) */}
+                    <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
+                </Button>
+            </div>
+
+       
+            <AnimatePresence mode="wait">
+                {/* Only render <Nav /> when the menu is active */}
+                {isActive && <Nav />}
+            </AnimatePresence>
+
+
+
+
         </>
     )
 }

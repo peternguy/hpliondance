@@ -6,7 +6,6 @@ import Services2 from './services2'
 import Link from 'next/link';
 import Gallery2 from './gallery2'
 import Gallery2_words from './gallery2-words'
-import Jospo from './jo-spo'
 import Button from '../../components/button/button';
 import Sponsors from './sponsors'
 import gsap from "gsap"
@@ -43,8 +42,8 @@ export default function Landing() {
     },
     {
       id:4,
-      title1: "Corprate",
-      title2: "Business",
+      title1: "Schools",
+      title2: "Businesses",
       src: "/img/rings.png",
     },
     {
@@ -149,11 +148,6 @@ export default function Landing() {
       <div>
           <Gallery2 />
       </div>
-
-    {/* 
-      <div className={styles.jospoSection}>
-          <Jospo />
-      </div>  */}
 
 
 

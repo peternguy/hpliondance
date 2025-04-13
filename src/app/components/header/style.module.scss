@@ -108,3 +108,19 @@
         
     }
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .header {
+      /* Hide the full navigation bar on mobile */
+      .nav {
+        display: none;
+      }
+    }
+    
+    .headerButtonContainer {
+
+      right: 12px;
+      top: 20px;
+    }
+  }

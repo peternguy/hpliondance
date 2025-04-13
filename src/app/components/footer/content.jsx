@@ -25,14 +25,14 @@ export default function Content() {
 const Section1 = () => {
     return (
         <div className='flex shrink-0 gap-20 text-white'>
-            <div className='flex flex-col gap-2 text-[2vw]'>
+            <div className='flex flex-col gap-2 text-[1.5vw]'>
                 <h3 className='mb-2 uppercase text-[#ffffff80]'>Social</h3>
                 <p>Instagram</p>
                 <p>Facebook</p>
                 <p>Youttube</p>
                 {/* <RevealLinks /> */}
             </div>
-            <div className='flex flex-col gap-2 text-[2vw]'>
+            <div className='flex flex-col gap-2 text-[1.5vw]'>
                 <h3 className='mb-2 uppercase text-[#ffffff80]'>Built by Peter Nguyen</h3>
                 <p>LinkedIn</p>
                 <p>GitHub</p>
