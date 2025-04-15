@@ -12,12 +12,14 @@
 .videoContainer {
   position: relative;
   width: 100%;
-  height: 100dvh;
+  height: calc(var(--initial-vh) * 100);
   // overflow: hidden;
   // fallback
-  @supports not (height: 100dvh) {
+  @supports not (height: calc(var(--initial-vh) * 100)) {
+    /* Fallback for browsers that don't support calc with custom properties */
     height: 100vh;
   }
+
 }
 
 .videoContainer video {

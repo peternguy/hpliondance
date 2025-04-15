@@ -19,6 +19,13 @@ gsap.registerPlugin(useGSAP);
 
 export default function Landing() {
 
+  useEffect(() => {
+    // Calculate 1% of the viewport height on load
+    const vh = window.innerHeight * 0.01;
+    // Set the CSS variable --initial-vh on the root element
+    document.documentElement.style.setProperty('--initial-vh', `${vh}px`);
+  }, []);
+
   const projects = [
 
     {
