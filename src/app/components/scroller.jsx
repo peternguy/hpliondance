@@ -23,7 +23,12 @@ export default function LocomotiveWrapper({ children }) {
   }, [pathname]);
 
   return (
-    <main data-scroll-container ref={containerRef}>
+    <main data-scroll-container ref={containerRef}   
+      style={{
+        position: 'relative', 
+        minHeight: '100dvh',
+        overflowX: 'hidden',
+      }}>
       {children}
     </main>
   );

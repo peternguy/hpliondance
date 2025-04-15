@@ -4,16 +4,16 @@
   flex-direction: column;
   width: 100vw;
   height: auto;
-  overflow: visible;
+  // overflow: visible;
   min-height: 100dvh;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 .videoContainer {
   position: relative;
   width: 100%;
   height: 100dvh;
-  overflow: hidden;
+  // overflow: hidden;
   // fallback
   @supports not (height: 100dvh) {
     height: 100vh;
