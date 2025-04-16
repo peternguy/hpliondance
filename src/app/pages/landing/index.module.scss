@@ -12,17 +12,17 @@
 .videoContainer {
   position: relative;
   width: 100%;
-  height: 100dvh;
-  // overflow: hidden;
+  height: 100%;
+  overflow: hidden;
   // fallback
-  @supports not (height: 100dvh) {
-    height: 100vh;
-  }
+  // @supports not (height: 100dvh) {
+  //   height: 100vh;
+  // }
 }
 
 .videoContainer video {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
   position: relative;
 }
