@@ -9,6 +9,7 @@ export default function index({children, backgroundColor="#4a63ff", ...attribute
   const circle = useRef(null);
   let timeline = useRef(null);
   let timeoutId = null;
+
   useEffect( () => {
     timeline.current = gsap.timeline({paused: true})
     timeline.current

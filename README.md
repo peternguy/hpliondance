@@ -4,4 +4,3 @@ bugs
 3. landing hero, button doesn't slide up with text
 4. button to link gallery
 5. link footer sites
-6. on mobile, hero video expands on chrome UI

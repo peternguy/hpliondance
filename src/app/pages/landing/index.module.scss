@@ -4,8 +4,8 @@
   flex-direction: column;
   width: 100vw;
   height: auto;
-  // overflow: visible;
   min-height: 100dvh;
+  // overflow: visible;
   // overflow-x: hidden;
 }
 
@@ -74,10 +74,10 @@
   /* Call to Action Button */
   .button {
     z-index: 4;
-    position: absolute;
-    top: 67%;
-    left: 38%;
-    transform: translateX(-50%);
+    position: relative;
+    top: 90%;
+    left: 10vw;
+    // transform: translateX(-90%);
     width: clamp(120px, 20vw, 180px);
     height: clamp(40px, 6vh, 60px);
     background-color: #455CE9;

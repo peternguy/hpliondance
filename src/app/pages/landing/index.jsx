@@ -11,8 +11,8 @@ import Sponsors from './sponsors'
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import SplitType from "split-type"
-
-
+import { useTransitionRouter } from 'next-view-transitions';
+import {slideInOut} from '../../components/header/pageTransition'
 
 
 gsap.registerPlugin(useGSAP);
@@ -54,11 +54,15 @@ export default function Landing() {
     }
   ]
   const container = useRef();
-  const firstText = useRef(null);
-  const secondText = useRef(null);
-  const slider = useRef(null);
+  // const firstText = useRef(null);
+  // const secondText = useRef(null);
+  // const slider = useRef(null);
+  const buttonRef = useRef(null);
+  const router = useTransitionRouter(); // for page transition
 
 
+
+  // hero animation for text to slide up
   useGSAP(
     () => {
       const text = new SplitType(".info p", {
@@ -84,6 +88,13 @@ export default function Landing() {
         ease: "power4.out",
         delay: 0.25,
       });
+
+       // --- Button Animation ---
+      gsap.fromTo(
+        buttonRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 1, delay: 1.2, ease: "power4.out" }
+      );
       
 
       return () => {
@@ -93,8 +104,6 @@ export default function Landing() {
     {scope: container}
     
   );
-  
-
 
 
   return (
@@ -115,11 +124,21 @@ export default function Landing() {
     
             <div className={styles.textWithButton}>
               <p className={styles.thirdText}>Step into the culture. Celebrate the tradition.</p>
-                <Link href="/pages/contact">
-                  <Button className={styles.button}>
-                    <p>Contact Now</p>
+                <div ref={buttonRef}>
+                  <Button className={styles.button}
+                  
+                    onClick={(e) => {
+                        e.preventDefault();
+                        router.push("/pages/contact", {
+                            onTransitionReady: slideInOut,
+                        })
+                    }}
+                    href="/pages/contact"
+                  >
+                    <p>Contact</p>
+                   
                   </Button>
-                </Link>
+                </div>
             </div>
           </div>
         </div>

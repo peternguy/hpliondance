@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import styles from './style.module.scss';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { menuSlide } from '../anim';
 import Link from './Link';
 import Curve from './Curve';
+import { useTransitionRouter } from 'next-view-transitions';
+import {slideInOut} from '../pageTransition'
+
+
 
 import { Playfair_Display } from 'next/font/google'
 
@@ -44,10 +48,14 @@ const navItems = [
   },
 ]
 
+
+
 export default function index() {
 
   const pathname = usePathname();
   const [selectedIndicator, setSelectedIndicator] = useState(pathname);
+  const buttonRef = useRef(null);
+  const router = useTransitionRouter(); // for page transition
 
   return (
     <motion.div variants={menuSlide} initial="initial" animate="enter" exit="exit" className={styles.menu}>
