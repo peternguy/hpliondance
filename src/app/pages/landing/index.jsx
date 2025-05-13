@@ -13,6 +13,7 @@ import { useGSAP } from "@gsap/react"
 import SplitType from "split-type"
 import { useTransitionRouter } from 'next-view-transitions';
 import {slideInOut} from '../../components/header/pageTransition'
+import Image from 'next/image';
 
 
 gsap.registerPlugin(useGSAP);
@@ -117,6 +118,7 @@ export default function Landing() {
           playsInline
           alt="background"
         />
+   
         <div className={styles.sliderContainer}>
           <div ref={container} className={`${styles.textContainer} info`}>
             <p className={styles.firstText}>Hoang Phuc</p>

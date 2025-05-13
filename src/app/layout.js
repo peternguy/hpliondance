@@ -5,6 +5,8 @@ import Footer from './components/footer/footer'
 import { ViewTransitions } from 'next-view-transitions'
 import LocomotiveWrapper from './components/scroller'
 
+import PreloaderWrapper from './components/preloader/preloaderWrapper'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -13,13 +15,16 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
   return (
     <ViewTransitions>
       <html lang="en">
         <body className={inter.className}>
           <Header />
           <LocomotiveWrapper>
+          <PreloaderWrapper>
           {children}
+          </PreloaderWrapper>
           </LocomotiveWrapper>
           <Footer />
         </body>
