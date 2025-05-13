@@ -3,7 +3,7 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { gsap } from 'gsap'
-import Preloader from './Preloader'
+import Preloader from './preloader'
 
 export default function PreloaderWrapper({ children }) {
   const loaderRef = useRef(null)
