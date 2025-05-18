@@ -87,8 +87,9 @@
   }
   
   .expertise-img-1 {
-    position: relative;
+    position: sticky;
     width: 45%;
+    height: 60vh;
     overflow: hidden;
   }
   
@@ -101,7 +102,7 @@
     width: 50%;
     margin: 0 auto;
     display: flex;
-    padding: 5.5em 0 1em 0;
+    padding: 4em 0 1em 0;
     will-change: transform;
     /* background-color: green; */
 
@@ -143,6 +144,17 @@
     position: relative;
     width: 100%;
     height: 100%;
+  }
+
+  .overlay-text {
+    position: absolute;
+    inset: 0;            /* top:0; right:0; bottom:0; left:0; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;     /* optional horizontal padding */
   }
   
   .founder-voice {

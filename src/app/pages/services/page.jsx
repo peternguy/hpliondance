@@ -8,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -21,7 +22,6 @@ const page = () => {
     "/img/ztz-11-min.jpg",
     "/img/ztz-07-min.jpg",
     "/img/ztz-10-min.jpg",
-    "/img/ztz-11-min.jpg",
     "/img/ztz-22-min.jpg",
   ];
 
@@ -91,6 +91,10 @@ const page = () => {
     };
   }, []);
 
+  const layerQueue = [];
+  const MAX_LAYERS = 3;   
+  const lastIndexRef = useRef(-1);      // ← track last shown index
+
   // After your existing useGSAP and second useEffect, add:
   useEffect(() => {
     // kill any old triggers
@@ -106,17 +110,58 @@ const page = () => {
       });
     });
 
-    function swapImage(i) {
-      gsap.to(imageRef.current, { autoAlpha: 0, duration: 0.2 });
-      imageRef.current.onload = () => {
-        gsap.to(imageRef.current, { autoAlpha: 1, duration: 0.4 });
-      };
-      imageRef.current.src = serviceImages[i];
-    }
-
     // set initial image
     swapImage(0);
   }, [windowWidth]);
+
+
+    function swapImage(i) {
+
+      // ← skip if it’s the same as last time
+      if (lastIndexRef.current === i) return;
+      lastIndexRef.current = i;
+      const wrapper = imageRef.current.parentElement;
+      
+      // 1) create a new img element
+      const newImg = document.createElement("img");
+      newImg.src = serviceImages[i];
+      Object.assign(newImg.style, {
+        position: "absolute",
+        inset: "0",
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        transformOrigin: "center center",
+        scale: "0",
+        opacity: "0",
+        willChange: "transform, opacity",
+      });
+
+      // 2) append it & queue it
+      wrapper.appendChild(newImg);
+      layerQueue.push(newImg);
+
+      // 3) animate it in
+      gsap.to(newImg, {
+        scale: 1,
+        opacity: 1,
+        duration: 0.4,
+        ease: "power2.out",
+        onComplete: () => {
+          // 4) once animation’s done, prune if too many
+          if (layerQueue.length > MAX_LAYERS) {
+            const old = layerQueue.shift();  // remove the oldest
+            wrapper.removeChild(old);
+          }
+        },
+      });
+    }
+
+    
+    
+    
+
+ 
   
 
   return (
@@ -163,7 +208,14 @@ const page = () => {
                   <img
                     ref={imageRef}
                     alt="Service illustration"
-                    style={{ width: "100%", opacity: 0 }}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      opacity: 1,
+                      transformOrigin: "center center",
+                      willChange: "opacity, transform"
+                    }}
+                    loading= "eager"
                   />                
                 </div>
               </div>
@@ -255,25 +307,8 @@ const page = () => {
                   beltra quofin zandra keelsGrimdor flayst ventsu klorba,
                   shimfra noglen praxil trebna. Sovin dratch mupler vestig, 
                   pom beltra quofin zandra keels </AnimatedCopy>              </div>
-              <div className="service">
-                <AnimatedCopy tag="h3">(05)</AnimatedCopy>
-                <AnimatedCopy tag="h2">Packages</AnimatedCopy>
-                <AnimatedCopy>01 SEO & Performance Optimization</AnimatedCopy>
-                <AnimatedCopy>02 Ad Campaigns & Paid Media</AnimatedCopy>
-                <AnimatedCopy>03 Email & CRM Strategies</AnimatedCopy>
-                <AnimatedCopy>04 Conversion Rate Optimization</AnimatedCopy>
-                <br />
-                <AnimatedCopy>Grimdor flayst ventsu klorba, shimfra 
-                  noglen praxil trebna. Sovin dratch mupler vestig, pom 
-                  beltra quofin zandra keelsGrimdor flayst ventsu klorba,
-                  shimfra noglen praxil trebna. Sovin dratch mupler vestig, 
-                  pom beltra quofin zandra keels </AnimatedCopy>
                   <br />
-                <AnimatedCopy>Grimdor flayst ventsu klorba, shimfra 
-                  noglen praxil trebna. Sovin dratch mupler vestig, pom 
-                  beltra quofin zandra keelsGrimdor flayst ventsu klorba,
-                  shimfra noglen praxil trebna. Sovin dratch mupler vestig, 
-                  pom beltra quofin zandra keels </AnimatedCopy>              </div>
+
             </div>
             <div className="col"></div>
 
@@ -284,6 +319,15 @@ const page = () => {
         <section className="about-outro-banner">
           <div className="about-outro-img">
             <img src="/img/ztz-27-min.jpg" alt="" speed={0.2} />
+          </div>
+
+          <div className="overlay-text">
+            <h2 className="text-4xl lg:text-6xl font-bold text-white">
+              Packages
+            </h2>
+            <p className="mt-4 text-lg lg:text-xl text-white/80">
+              Some sub-heading or call to action
+            </p>
           </div>
         </section>
 

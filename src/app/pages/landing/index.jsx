@@ -117,7 +117,8 @@ export default function Landing() {
           muted
           playsInline
           alt="background"
-        />
+          preload="auto"
+          />
    
         <div className={styles.sliderContainer}>
           <div ref={container} className={`${styles.textContainer} info`}>
