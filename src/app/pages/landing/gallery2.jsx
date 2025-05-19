@@ -6,7 +6,7 @@ import ParallaxImage from "../../components/ParallaxImage/ParallaxImage";
 
 export default function Section() {
     const container = useRef();
-    const Background = "/img/ztz-07-min.jpg";
+    const Background = "/img/ztz2.jpg";
 
     return (
         <div

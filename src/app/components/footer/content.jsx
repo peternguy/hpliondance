@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Button from '../button/button';
 import styles from './footer.module.scss'
 import { Playfair_Display } from 'next/font/google'
+import AnimatedH1 from "../AnimatedH1/AnimatedH1";
+
 
 const playfair_display = Playfair_Display ({
   subsets: ['latin'],
@@ -44,7 +46,7 @@ const Section1 = () => {
 const Section2 = () => {
     return (
         <div className='flex justify-between items-end'>
-            <h1 className='text-[14vw] leading-[0.8] mt-10 text-[#ffffff]'>HPLionDance</h1>
+            <AnimatedH1 className='text-[14vw] leading-[0.8] mt-10 text-[#ffffff]'>HPLionDance</AnimatedH1>
             <p className='text-[#ffffff]'>©copyright</p>
         </div>
     )

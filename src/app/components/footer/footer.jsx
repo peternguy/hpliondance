@@ -1,7 +1,19 @@
+"use client"
+
+import { usePathname } from "next/navigation"
 import React from 'react'
 import Content from './content';
 
 export default function Footer() {
+  const pathname = usePathname()
+
+  // list any paths where you DON'T want the footer:
+  const hideOn = ["/pages/gallery"]
+
+  if (hideOn.includes(pathname)) {
+    return null
+  }
+
   return (
     <div 
       className='relative h-[100vh]'

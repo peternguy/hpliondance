@@ -83,7 +83,6 @@ const page = () => {
   }, []);
 
   return (
-    // <ReactLenis root>
       <div className="page" ref={container}>
         <section className="about-hero">
           <div className="about-hero-bg">
@@ -263,7 +262,6 @@ const page = () => {
         </section>
 
       </div>
-    // </ReactLenis>
   );
 };
 

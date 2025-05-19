@@ -19,10 +19,10 @@ const page = () => {
   const imageRef = useRef();
 
   const serviceImages = [
-    "/img/ztz-11-min.jpg",
-    "/img/ztz-07-min.jpg",
-    "/img/ztz-10-min.jpg",
-    "/img/ztz-22-min.jpg",
+    "/img/ztz7.jpg",
+    "/img/ztz1.jpg",
+    "/img/ztz3.jpg",
+    "/img/ztz5.jpg",
   ];
 
   useEffect(() => {
@@ -169,7 +169,7 @@ const page = () => {
       <div className="page" ref={container}>
         <section className="about-hero">
           <div className="about-hero-bg">
-            <img src="/img/ztz-27-min.jpg" alt=" Hero Image" />
+            <img src="/img/ztz6.jpg" alt=" Hero Image" />
           </div>
 
           <div className="container">
@@ -318,7 +318,7 @@ const page = () => {
 
         <section className="about-outro-banner">
           <div className="about-outro-img">
-            <img src="/img/ztz-27-min.jpg" alt="" speed={0.2} />
+            <img src="/img/ztz6.jpg" alt="" speed={0.2} />
           </div>
 
           <div className="overlay-text">
@@ -333,14 +333,15 @@ const page = () => {
 
         <section className="founder-voice">
           <div className="container">
+
             <AnimatedCopy tag="h2">
-              "Wedding Package revolutionizes influencer marketing by seamlessly
+              Wedding Package revolutionizes influencer marketing by seamlessly
               connecting brands with powerful voices across social media,
-              crafting narratives that leave a lasting impact.”
+              crafting narratives that leave a lasting impact.
             </AnimatedCopy>
 
             <div className="founder-image">
-              <img src="/img/ztz-27-min.jpg" alt="" />
+              <img src="/img/ztz6.jpg" alt="" />
             </div>
             <div className="founter-info">
               <AnimatedCopy>Alvah Jehohanan</AnimatedCopy>
