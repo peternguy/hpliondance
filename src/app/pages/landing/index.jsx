@@ -108,74 +108,77 @@ export default function Landing() {
 
 
   return (
-    <main className={styles.main} >
-      <div className={styles.videoContainer}>
-        <video 
-          src="/videos/hero-1.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          alt="background"
-          preload="auto"
-          />
-   
-        <div className={styles.sliderContainer}>
-          <div ref={container} className={`${styles.textContainer} info`}>
-            <p className={styles.firstText}>Hoang Phuc</p>
-            <p className={styles.secondText}>Lion Dance</p>
+    <>
+      <div className={styles.viewportFix} />
+      <main className={styles.main} >
+        <div className={styles.videoContainer}>
+          <video 
+            src="/videos/hero-1.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            alt="background"
+            preload="auto"
+            />
     
-            <div className={styles.textWithButton}>
-              <p className={styles.thirdText}>Step into the culture. Celebrate the tradition.</p>
-                <div ref={buttonRef}>
-                  <Button className={styles.button}
-                  
-                    onClick={(e) => {
-                        e.preventDefault();
-                        router.push("/pages/contact", {
-                            onTransitionReady: slideInOut,
-                        })
-                    }}
-                    href="/pages/contact"
-                  >
-                    <p>Contact</p>
-                   
-                  </Button>
-                </div>
+          <div className={styles.sliderContainer}>
+            <div ref={container} className={`${styles.textContainer} info`}>
+              <p className={styles.firstText}>Hoang Phuc</p>
+              <p className={styles.secondText}>Lion Dance</p>
+      
+              <div className={styles.textWithButton}>
+                <p className={styles.thirdText}>Step into the culture. Celebrate the tradition.</p>
+                  <div ref={buttonRef}>
+                    <Button className={styles.button}
+                    
+                      onClick={(e) => {
+                          e.preventDefault();
+                          router.push("/pages/contact", {
+                              onTransitionReady: slideInOut,
+                          })
+                      }}
+                      href="/pages/contact"
+                    >
+                      <p>Contact</p>
+                    
+                    </Button>
+                  </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      
-      <div className={styles.descriptionSection}>
-        <Description />
-      </div> 
+        
+        <div className={styles.descriptionSection}>
+          <Description />
+        </div> 
 
-      <div>
-        <Sponsors />
-      </div>
-   
-      <div className={styles.services2Section}>
-        <p>Services</p>
-        {projects.map((project) => (
-          <Services2 key={project.id} project={project} />
-        ))}
-      </div>
-
-      <div>
-        <Gallery2_words />
-      </div>
-
-      <div>
-          <Gallery2 />
-      </div>
-
-
-
- 
+        <div>
+          <Sponsors />
+        </div>
     
+        <div className={styles.services2Section}>
+          <p>Services</p>
+          {projects.map((project) => (
+            <Services2 key={project.id} project={project} />
+          ))}
+        </div>
 
-    </main>
+        <div>
+          <Gallery2_words />
+        </div>
+
+        <div>
+            <Gallery2 />
+        </div>
+
+
+
+  
+      
+
+      </main>
+    </>
   )
 }
