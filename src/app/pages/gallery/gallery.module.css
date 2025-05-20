@@ -29,7 +29,7 @@
   background-color: #f1efe7;
 }
 
-
+/* 
 .siteInfo {
   position: absolute;
   top: 50%;
@@ -43,7 +43,7 @@
 
 .siteInfo p {
   color: #202020;
-}
+} */
 
 .imgPreview {
   position: absolute;
@@ -63,6 +63,8 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  padding-top: 1em;
+
 }
 
 .minimap {
@@ -101,12 +103,21 @@
 
 .backBtn {
   position: absolute;
-  bottom: 1rem;
+  bottom: 16rem;
   left: 1rem;
   background: none;
   border: none;
   font-size: 1rem;
   cursor: pointer;
+}
+
+.item img {
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+
+.active img {
+  opacity: 0.3;   /* same as your activeItemOpacity */
 }
 
 @media (max-width: 900px) {

@@ -2,12 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./gallery.module.css"
+import FlipText from "../../components/revealLink/revealLink";
+
 
 export default function GalleryMinimap({ images, initialIndex, onBack }) {
   const containerRef = useRef(null);
   const itemsRef = useRef(null);
   const indicatorRef = useRef(null);
-  const previewImageRef = useRef(null);
   const itemRefs = useRef([]);
   const animationFrameRef = useRef(null);
 
@@ -25,13 +26,7 @@ export default function GalleryMinimap({ images, initialIndex, onBack }) {
     indicatorSize: 0,
   });
 
-  const activeItemOpacity = 0.3;
-  // const images = Array.from(
-  //   { length: 7 },
-  //   (_, i) => `/img/ztz${i + 1}.jpg`
-  // );
   const isClickMoveRef = useRef(false);
-
   const lerp = (start, end, factor) => {
     return start + (end - start) * factor;
   };
@@ -64,12 +59,6 @@ export default function GalleryMinimap({ images, initialIndex, onBack }) {
   };
 
   const getItemInIndicator = () => {
-    itemRefs.current.forEach((item) => {
-      if (item?.querySelector("img")) {
-        item.querySelector("img").style.opacity = "1";
-      }
-    });
-
     const indicatorStart = -translateRef.current.current;
     const indicatorEnd = indicatorStart + dimensionsRef.current.indicatorSize;
 
@@ -90,20 +79,7 @@ export default function GalleryMinimap({ images, initialIndex, onBack }) {
       }
     });
 
-    if (itemRefs.current[selectedIndex]?.querySelector("img")) {
-      itemRefs.current[selectedIndex].querySelector("img").style.opacity =
-        activeItemOpacity;
-    }
     return selectedIndex;
-  };
-
-  const updatePreviewImage = (index) => {
-    if (currentImageIndex !== index) {
-      setCurrentImageIndex(index);
-      if (previewImageRef.current) {
-        previewImageRef.current.src = images[index];
-      }
-    }
   };
 
   const animate = () => {
@@ -127,7 +103,7 @@ export default function GalleryMinimap({ images, initialIndex, onBack }) {
       }
 
       const activeIndex = getItemInIndicator();
-      updatePreviewImage(activeIndex);
+      setCurrentImageIndex(activeIndex);
     } else {
       isClickMoveRef.current = false;
     }
@@ -209,11 +185,24 @@ export default function GalleryMinimap({ images, initialIndex, onBack }) {
     window.addEventListener("resize", handleResize);
 
     updateDimensions();
-    if (itemRefs.current[0]?.querySelector("img")) {
-      itemRefs.current[0].querySelector("img").style.opacity =
-        activeItemOpacity;
+    // Center the strip on the clicked thumbnail
+    const { itemSize, indicatorSize } = dimensionsRef.current;
+    const rawOffset =
+      -initialIndex * itemSize +
+      (indicatorSize - itemSize) / 2;
+    const clampedOffset = Math.max(
+      Math.min(rawOffset, 0),
+      -translateRef.current.max
+    );
+    // Seed both current and target so the animation loop doesn’t fight it
+    translateRef.current.current = clampedOffset;
+    translateRef.current.target  = clampedOffset;
+    // Immediately apply the transform so there’s no “flash” at 0
+    if (itemsRef.current) {
+      const axis = isHorizontal ? "X" : "Y";
+      itemsRef.current.style.transform = `translate${axis}(${clampedOffset}px)`;
     }
-    updatePreviewImage(initialIndex);
+    // updatePreviewImage(initialIndex);
     animationFrameRef.current = requestAnimationFrame(animate);
 
     return () => {
@@ -246,17 +235,12 @@ export default function GalleryMinimap({ images, initialIndex, onBack }) {
   <div className={styles.container} ref={containerRef}>
 
       <button className={styles.backBtn} onClick={onBack}>
-        ← Back to Gallery
+        <FlipText>BACK</FlipText>
       </button>
-
-      <div className={styles.siteInfo}>
-        <p>Minimap</p>
-        <p>Grid</p>
-      </div>
 
       <div className={styles.imgPreview}>
         <img
-         ref={previewImageRef}
+        //  ref={previewImageRef}
          src={images[currentImageIndex]} 
          alt="" 
          loading="eager"
@@ -266,20 +250,20 @@ export default function GalleryMinimap({ images, initialIndex, onBack }) {
       <div className={styles.minimap}>
       <div className={styles.indicator} ref={indicatorRef}></div>
         <div className={styles.items} ref={itemsRef}>
-          {images.map((src, index) => (
-            <div
-              key={src}
-              className={styles.item}
-              ref={(el) => (itemRefs.current[index] = el)}
-              onClick={() => handleItemClick(index)}
-            >
-              <img
-               src={src}
-               alt=""
-               loading="eager"
-              />
-            </div>
-          ))}
+          {images.map((src, idx) => (
+          <div
+            key={idx}
+            className={
+              `${styles.item}` +
+              (idx === currentImageIndex ? ` ${styles.active}` : "")
+            }
+            ref={el => (itemRefs.current[idx] = el)}
+            onClick={() => handleItemClick(idx)}
+          >
+            <img src={src} alt="" loading="eager" />
+          </div>
+        ))}
+
         </div>
       </div>
     </div>

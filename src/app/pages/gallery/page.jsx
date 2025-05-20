@@ -8,7 +8,7 @@ export default function GalleryPage() {
     const [selected, setSelected] = useState(null);
 
     const images = Array.from(
-        { length: 7 },
+        { length: 5 },
         (_, i) => `/img/ztz${i + 1}.jpg`
     );
   

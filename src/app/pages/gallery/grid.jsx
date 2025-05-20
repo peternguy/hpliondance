@@ -14,7 +14,7 @@ export default function GalleryGrid({ images, onSelect }) {
             <img
                 src={src}
                 alt={`Thumbnail ${i + 1}`}
-                loading="eager"
+                // loading="eager"
             />
         </div>
       ))}
